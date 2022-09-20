@@ -1,0 +1,245 @@
+
+
+@import url(https://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
+@import url(https://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css);
+$maincolor: #6acd79;
+$secondarycolor: #2a2b39;
+
+::selection {color:#fff;background:$secondarycolor;}
+::-moz-selection {color:#fff;background:$secondarycolor;}
+body,html{
+  font-family: 'Raleway', sans-serif;
+  background: url(https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29ya3xlbnwwfHwwfHw%3D&w=1000&q=80);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  z-index:9;
+}
+.bgtint{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba($secondarycolor, .7);
+}
+p{
+  padding:0;
+  margin:0;
+  display: inline-block
+}
+a{
+  color: $secondarycolor;
+  text-decoration: none;
+  transition :all .2s ease-in-out;
+  &:hover{
+    color: $maincolor;
+  }
+}
+.bussinesscard{
+  height:320px;
+  width:428px;
+  overflow: hidden;
+  box-shadow: 0px 0px 43px -10px black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform :translate(-50%,-50%);
+  .flip{
+    transition : all .5s ease;
+  }
+  .front{
+    z-index: 11;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0px 0px 33px -1px rgba(0, 0, 0, 0.45);
+    transform :scale(1);
+    transition:all .6s ease;
+    .top{
+      height: 50%;
+      background: $secondarycolor;
+      &:after{
+        position: absolute;
+        content: '';
+        pointer-events: none;
+      }
+
+      .logo{
+        display: inline-block;
+        background: $maincolor;
+        color: #fff;
+        z-index: 11;
+        padding: .16em;
+        border: 8px solid #fff;
+        position: relative;
+        pointer-events: none;
+        transform :translateX(-50%);
+        left: 50%;
+        margin-top: .4em;
+        font-size: 4em;
+        .fat{
+          font-weight: 800;
+        }
+        .skinny{
+          font-weight: 100;
+        }
+      }
+    }
+    .nametroduction{
+      margin-top: 2.4em;
+      transform :translateY(0);
+      z-index: 8;
+    }
+    .name{
+      color: $secondarycolor;
+      font-weight: 400;
+      font-size: 3.2em;
+      text-align: center;
+      position: relative;
+      margin-bottom: .35em;
+      &:after{
+        content: '';
+        position: absolute;
+        top: 1.3em;
+        width: 20%;
+        left: 40%;
+        right: 40%;
+        height: 1px;
+        background: $secondarycolor;
+      }
+    }
+    .bouton{
+      text-align: center;
+    }
+    .introduction{
+      text-align: center;
+      color: $secondarycolor;
+      font-family: 'Old Standard TT', serif;
+      font-style: italic;
+    }
+    .contact{
+      margin-top: 10%;
+      color: $secondarycolor;
+      margin-left: 1.7em;
+      font-weight: 300;
+      font-size: 1.2em;
+    transform : translateY(400%);
+      span{
+        color: #2D3244;
+        font-size: 1.7em;
+        width: 1.3em;
+        display: inline-block;
+      }
+      a{
+        position: relative;
+        bottom: .24em;
+      }
+    }
+  }
+  .back{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    backface-visibility: hidden;
+    position: absolute;
+  }
+}
+
+.tooltip-web{
+  position: absolute;
+  left: 1em;
+  bottom: 1em;
+  color:#fff;
+  font-weight: 300;
+  padding: .4em;
+  background: $maincolor;
+}
+.tooltip-mobile{
+  display:none;
+}
+
+
+/* HOVER ANIMATIONS */
+
+.front .top .logo, .front .top, .front .top:after, .front .nametroduction, .front .contact{
+transition:.7s all ease-in-out;
+}
+.flip:hover .front .top .logo{
+  transform : translateY(-150%);
+}
+.flip:hover .front .top{
+  height: 15%;
+  &:after{
+    width: 1.5em;
+    height: 1.5em;
+    bottom: 16.3em;
+  }
+}
+.flip:hover .front .nametroduction{
+transform: translateY(400%);
+}
+.flip:hover .front .contact{
+transform :translateY(-52%);
+}
+.flip:hover .front .name{
+  font-size: 1.8em;
+}
+
+// responsive
+@media screen and (max-width: 768px) {
+  .flip:hover .front .nametroduction{
+    transform: translateY(-100%);
+    background: #6acd79;
+  }
+  .tooltip-web{
+    display: none;
+  }
+  .tooltip-mobile{
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    color:#fff;
+    font-weight: 300;
+    padding: .4em;
+    background: $maincolor;
+    display: block;
+  }
+  .bussinesscard{
+    height: 80%;
+    width: 90%;
+    .front{
+      .top{
+        height: 30%;
+        &:after{
+          bottom: 8em;
+        }
+      }
+      .nametroduction{
+        margin-top: 1.4em;
+      }
+      .name{
+        font-size: 2.2em;
+        &:after{
+          top: 1.3em;
+        }
+      }
+      .introduction{
+        font-size: 1.2em;
+      }
+      .contact{
+        margin-left: 1.2em;
+        font-size: 1em;
+        span{
+          font-size: 1.3em;
+        }
+      }
+
+    }
+  }
+}
