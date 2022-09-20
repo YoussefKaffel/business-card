@@ -1,6 +1,5 @@
 import './App.scss';
 import Image from './assets/DSC_3213.jpg';
-import Btn from './btn'
 function App() {
   return (
     <div className="App">
